@@ -1,0 +1,12 @@
+/* style.module.scss */
+.layout {
+    padding: 24px;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 264px 1fr;
+}
+
+.content {
+    width: 100%;
+    position: relative;
+}
