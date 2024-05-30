@@ -15,7 +15,7 @@ export const CourseService = {
         const courses: Course[] = data;
 
         const filteredCourses =
-            query === "all" || query === "" ?
+            query === "all" ?
                 courses
                 :
                 courses.filter(course => course.tags.includes(query));

@@ -3,16 +3,16 @@ import { useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import { CourseService } from 'utils/services/CourseService';
-import { CourseItem, Preloader } from 'components';
+import { MemoizedCourseItem, Preloader } from 'components';
 
 import style from "./style.module.scss";
 
 const CourseList = () => {
     const [searchparams] = useSearchParams();
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState("all");
 
     useEffect(() => {
-        setQuery(searchparams.get("filter") || "");
+        setQuery(searchparams.get("filter") || "all");
     }, [searchparams]);
 
     const { data, isLoading, error } = useQuery({
@@ -27,7 +27,7 @@ const CourseList = () => {
     return (
         <div className={style.list}>
             {data?.map(course => (
-                <CourseItem key={course.id} {...course} />
+                <MemoizedCourseItem key={course.id} {...course} />
             ))}
         </div>
     );

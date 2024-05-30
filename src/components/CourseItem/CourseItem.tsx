@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import style from './style.module.scss';
 
@@ -12,5 +12,6 @@ const CourseItem: FC<Course> = ({ name, image, bgColor }) => {
         </div>
     )
 }
+const MemoizedCourseItem = memo(CourseItem);
 
-export default CourseItem
+export default MemoizedCourseItem
